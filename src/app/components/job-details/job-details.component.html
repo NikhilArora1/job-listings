@@ -23,10 +23,10 @@
             </div>
             <button mat-raised-button color="primary" (click)="apply()">Apply Now</button>
         </div>
-        <div class="margin-t-2x" [innerHTML]="job.description"></div>
+        <div id="job-description" class="margin-t-2x" [innerHTML]="job.description"></div>
     </mat-card>
 
     <mat-card id="apply">
-        <div id="apply-info" [innerHTML]="job.how_to_apply"></div>
+        <div [innerHTML]="job.how_to_apply"></div>
     </mat-card>
 </div>
