@@ -12,8 +12,6 @@ export class JobsListComponent implements OnInit {
   isFullTime = false;
   location = '';
   data;
-  repos;
-  org = 'invisible-tech';
 
   constructor(
     private jobListService: JobListService,
