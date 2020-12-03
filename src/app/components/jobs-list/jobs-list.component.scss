@@ -1,0 +1,116 @@
+#filter {
+    bottom: 42px;
+    display: flex;
+    justify-content: stretch;
+    align-items: center;
+
+    &-title {
+        flex: 40%;
+        max-width: 40%;
+    }
+
+    &-location {
+        flex: 30%;
+        max-width: 30%;
+    }
+
+    &-search {
+        flex: 30%;
+        max-width: 30%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &-checkbox {
+        margin-right: 16px;
+    }
+
+    &-sm {
+        display: flex;
+        bottom: 42px;
+        display: none;
+    }
+}
+
+.vert-divider {
+    height: 71px;
+    margin-top: -16px;
+    margin-bottom: -16px;
+}
+
+.form-field {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+::ng-deep .mat-form-field-wrapper {
+    margin-bottom: -1.25em;
+    width: 100%;
+}
+
+::ng-deep .mat-form-field-appearance-legacy {
+
+    .mat-form-field-prefix,
+    .mat-form-field-suffix {
+        align-self: flex-end;
+    }
+}
+
+
+.job {
+    &-list {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &-card {
+        width: 275px;
+        height: 150px;
+        margin: 16px;
+        position: relative;
+        cursor: pointer;
+    }
+
+    &-logo {
+        height: 35px;
+        position: absolute;
+        top: -12px;
+    }
+
+    &-summary {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &-title {
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    &-location {
+        color: #673ab7;
+        font-weight: bold;
+    }
+}
+
+.caption {
+    color: #757575;
+}
+
+@media only screen and (max-width: 800px) {
+    #filter {
+        display: none;
+
+        &-sm {
+            display: flex;
+        }
+    }
+
+    .job-card {
+        width: 100%;
+    }
+}

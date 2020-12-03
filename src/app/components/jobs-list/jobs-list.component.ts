@@ -1,0 +1,41 @@
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { JobListService } from 'src/app/services/job-list.service';
+
+@Component({
+  selector: 'app-jobs-list',
+  templateUrl: './jobs-list.component.html',
+  styleUrls: ['./jobs-list.component.scss']
+})
+export class JobsListComponent implements OnInit {
+  description = '';
+  isFullTime = false;
+  location = '';
+  data;
+  repos;
+  org = 'invisible-tech';
+
+  constructor(
+    private jobListService: JobListService,
+    private router: Router) { }
+
+  ngOnInit(): void {
+    this.getJobs();
+  }
+
+  getJobs(): void {
+    this.jobListService.getJobs(this.description, this.isFullTime, this.location).subscribe(res => {
+      console.log(res);
+      this.data = res;
+    });
+  }
+
+  fullTime(isFullTime): void {
+    this.isFullTime = isFullTime.checked;
+  }
+
+  jobDetails(id): void {
+    this.router.navigate(['/job', id]);
+  }
+
+}

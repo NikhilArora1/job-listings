@@ -1,0 +1,32 @@
+<div *ngIf="job">
+    <mat-card id="comp">
+        <div id="comp-info">
+            <img id="comp-logo" src="{{job.company_logo}}">
+            <div id="comp-sub-info">
+                <span id="comp-name">{{job.company}}</span>
+                <span id="comp-url">{{job.company_url}}</span>
+            </div>
+        </div>
+        <button id="comp-site" mat-stroked-button color="primary" (click)="company()">Company Site</button>
+    </mat-card>
+
+    <mat-card id="job">
+        <span id="job-caption">
+            {{job.created_at | dateAgo}}
+            <mat-icon class="separator-icon">fiber_manual_record</mat-icon>
+            {{job.type}}
+        </span>
+        <div id="job-info">
+            <div>
+                <div id="job-title">{{job.title}}</div>
+                <div id="job-location">{{job.location}}</div>
+            </div>
+            <button mat-raised-button color="primary" (click)="apply()">Apply Now</button>
+        </div>
+        <div class="margin-t-2x" [innerHTML]="job.description"></div>
+    </mat-card>
+
+    <mat-card id="apply">
+        <div id="apply-info" [innerHTML]="job.how_to_apply"></div>
+    </mat-card>
+</div>

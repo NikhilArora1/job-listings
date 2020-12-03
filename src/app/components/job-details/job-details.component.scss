@@ -1,0 +1,79 @@
+#comp {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    margin-top: -40px;
+    margin-bottom: 32px;
+
+    &-info {
+        display: flex;
+        align-items: center;
+    }
+
+    &-logo {
+        height: 100px;
+        margin-right: 16px;
+    }
+
+    &-sub-info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &-name {
+        font-size: 20px;
+    }
+
+    &-url {
+        font-size: 12px;
+        padding-top: 8px;
+        color: #757575;
+    }
+
+    &-site {
+        margin: 16px;
+    }
+}
+
+#job {
+    padding: 24px;
+
+    &-caption {
+        color: #757575;
+    }
+
+    &-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &-title {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    &-location {
+        color: #673ab7;
+        font-weight: bold;
+    }
+}
+
+#apply {
+    margin-top: 16px;
+    margin-bottom: 32px;
+    background: #673ab7;
+    color: #FFFFFF;
+}
+
+@media only screen and (max-width: 500px) {
+    #comp {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    #job-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
