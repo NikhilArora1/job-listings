@@ -17,3 +17,10 @@
     color: #FFFFFF;
     cursor: pointer;
 }
+
+@media only screen and (max-width: 600px) {
+    #header {
+        height: 100px;
+        width: 100%;
+    }
+}
