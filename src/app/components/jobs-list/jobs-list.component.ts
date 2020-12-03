@@ -25,7 +25,6 @@ export class JobsListComponent implements OnInit {
 
   getJobs(): void {
     this.jobListService.getJobs(this.description, this.isFullTime, this.location).subscribe(res => {
-      console.log(res);
       this.data = res;
     });
   }

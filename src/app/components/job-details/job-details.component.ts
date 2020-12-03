@@ -20,7 +20,6 @@ export class JobDetailsComponent implements OnInit {
 
   getJobDetails(id): void {
     this.jobListService.getJobDetails(id).subscribe(res => {
-      console.log(res);
       this.job = res;
     });
   }
