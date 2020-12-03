@@ -1,49 +1,52 @@
-<mat-card id="filter">
-    <div id="filter-title">
-        <mat-form-field class="form-field full-width" >
-            <mat-icon matPrefix>search</mat-icon>
-            <mat-label>Filter by title, companies, expertise...</mat-label>
-            <input matInput [(ngModel)]="description">
-        </mat-form-field>
-    </div>
-    <mat-divider class="margin-lr vert-divider" [vertical]="true"></mat-divider>
-    <div id="filter-location">
-        <mat-form-field class="form-field">
-            <mat-icon matPrefix>location_on</mat-icon>
-            <mat-label>Filter by location</mat-label>
-            <input matInput [(ngModel)]="location">
-        </mat-form-field>
-    </div>
-    <mat-divider class="margin-lr vert-divider" [vertical]="true"></mat-divider>
-    <div id="filter-search">
-        <mat-checkbox id="filter-checkbox" (change)="fullTime($event)">Full Time Only</mat-checkbox>
-        <button mat-raised-button color="primary" (click)="getJobs()">Search</button>
-    </div>
-</mat-card>
-<mat-card id="filter-sm">
-    <mat-form-field class="form-field margin-r-2x">
-        <mat-label>Filter by title...</mat-label>
-        <input matInput [(ngModel)]="description">
-      </mat-form-field>
-      <button mat-mini-fab color="primary" (click)="getJobs()">
-        <mat-icon>search</mat-icon>
-      </button>
-</mat-card>
-
-<div class="job-list">
-    <mat-card *ngFor="let job of data" class="job-card" (click)="jobDetails(job.id)">
-        <img *ngIf="job.company_logo" class="job-logo" src="{{job.company_logo}}">
-        <div class="job-summary">
-            <div class="margin-t-2x">
-                <span class="caption">
-                    {{job.created_at | dateAgo}}
-                    <mat-icon class="separator-icon">fiber_manual_record</mat-icon>
-                    {{job.type}}
-                </span>
-                <div class="job-title">{{job.title}}</div>
-                <span class="caption">{{job.company}}</span>
-            </div>
-            <span class="job-location">{{job.location}}</span>
+<app-loading-animation *ngIf="loading"></app-loading-animation>
+<div *ngIf="data">
+    <mat-card id="filter">
+        <div id="filter-title">
+            <mat-form-field class="form-field full-width">
+                <mat-icon matPrefix>search</mat-icon>
+                <mat-label>Filter by title, companies, expertise...</mat-label>
+                <input matInput [(ngModel)]="description">
+            </mat-form-field>
+        </div>
+        <mat-divider class="margin-lr vert-divider" [vertical]="true"></mat-divider>
+        <div id="filter-location">
+            <mat-form-field class="form-field">
+                <mat-icon matPrefix>location_on</mat-icon>
+                <mat-label>Filter by location</mat-label>
+                <input matInput [(ngModel)]="location">
+            </mat-form-field>
+        </div>
+        <mat-divider class="margin-lr vert-divider" [vertical]="true"></mat-divider>
+        <div id="filter-search">
+            <mat-checkbox id="filter-checkbox" (change)="fullTime($event)">Full Time Only</mat-checkbox>
+            <button mat-raised-button color="primary" (click)="getJobs()">Search</button>
         </div>
     </mat-card>
+    <mat-card id="filter-sm">
+        <mat-form-field class="form-field margin-r-2x">
+            <mat-label>Filter by title...</mat-label>
+            <input matInput [(ngModel)]="description">
+        </mat-form-field>
+        <button mat-mini-fab color="primary" (click)="getJobs()">
+            <mat-icon>search</mat-icon>
+        </button>
+    </mat-card>
+
+    <div class="job-list">
+        <mat-card *ngFor="let job of data" class="job-card" (click)="jobDetails(job.id)">
+            <img *ngIf="job.company_logo" class="job-logo" src="{{job.company_logo}}">
+            <div class="job-summary">
+                <div class="margin-t-2x">
+                    <span class="caption">
+                        {{job.created_at | dateAgo}}
+                        <mat-icon class="separator-icon">fiber_manual_record</mat-icon>
+                        {{job.type}}
+                    </span>
+                    <div class="job-title">{{job.title}}</div>
+                    <span class="caption">{{job.company}}</span>
+                </div>
+                <span class="job-location">{{job.location}}</span>
+            </div>
+        </mat-card>
+    </div>
 </div>

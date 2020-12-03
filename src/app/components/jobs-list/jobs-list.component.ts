@@ -12,17 +12,20 @@ export class JobsListComponent implements OnInit {
   isFullTime = false;
   location = '';
   data;
+  loading: boolean;
 
   constructor(
     private jobListService: JobListService,
     private router: Router) { }
 
   ngOnInit(): void {
+    this.loading = true;
     this.getJobs();
   }
 
   getJobs(): void {
     this.jobListService.getJobs(this.description, this.isFullTime, this.location).subscribe(res => {
+      this.loading = false;
       this.data = res;
     });
   }

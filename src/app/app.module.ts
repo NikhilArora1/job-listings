@@ -7,6 +7,8 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { JobsListComponent } from './components/jobs-list/jobs-list.component';
+import { LoadingAnimationComponent } from './components/loading-animation/loading-animation.component';
+import { JobDetailsComponent } from './components/job-details/job-details.component';
 import { DateAgoPipe } from './utils/date-ago.pipe';
 
 
@@ -18,14 +20,14 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatMenuModule } from '@angular/material/menu';
-import { JobDetailsComponent } from './components/job-details/job-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     JobsListComponent,
     DateAgoPipe,
-    JobDetailsComponent
+    JobDetailsComponent,
+    LoadingAnimationComponent
   ],
   imports: [
     BrowserModule,

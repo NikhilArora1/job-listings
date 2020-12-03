@@ -8,6 +8,7 @@ import { JobListService } from 'src/app/services/job-list.service';
   styleUrls: ['./job-details.component.scss']
 })
 export class JobDetailsComponent implements OnInit {
+  loading: boolean;
   job;
 
   constructor(
@@ -15,11 +16,13 @@ export class JobDetailsComponent implements OnInit {
     private jobListService: JobListService) { }
 
   ngOnInit(): void {
+    this.loading = true;
     this.getJobDetails(this.route.snapshot.params.id);
   }
 
   getJobDetails(id): void {
     this.jobListService.getJobDetails(id).subscribe(res => {
+      this.loading = false;
       this.job = res;
     });
   }
